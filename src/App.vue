@@ -47,6 +47,7 @@ import { reactive } from 'vue';
 			finalizada: false,
 		}
 		estado.tarefas.push(tarefaNova);
+		estado.tarefaTemp = '';
 	}
 
 </script>
@@ -62,7 +63,7 @@ import { reactive } from 'vue';
 		<form @submit.prevent="cadastraTarefa">
 			<div class="row">
 				<div class="col">
-					<input @change="evento => estado.tarefaTemp = evento.target.value" required type="text" class="form-control" placeholder="Digite a descrição da tarefa">
+					<input :value="estado.tarefaTemp" @change="evento => estado.tarefaTemp = evento.target.value" required type="text" class="form-control" placeholder="Digite a descrição da tarefa">
 				</div>
 				<div class="col-md-2">
 					<button type="submit" class="btn btn-primary">Cadastrar</button>
